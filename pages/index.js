@@ -34,7 +34,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Shivendra
+        Sparsh
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -132,7 +132,7 @@ export default function Album() {
       toast.error("Please enter your city");
       return;
     }
-    // console.log(userData);
+    console.log(userData);
 
     try {
       const token = localStorage.getItem("token");
@@ -367,7 +367,7 @@ export default function Album() {
                               onClick={() => handleBookSlot(item.id)}
                               className="py-1.5 px-4 bg-blue-600 text-white border hover:text-blue-600 hover:bg-white rounded-xl duration-300 hover:scale-105"
                             >
-                              Apply
+                              Book
                             </button>
                           </Grid>
                           <Grid item>
