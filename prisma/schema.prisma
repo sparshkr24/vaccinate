@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model VaccinationCenter {
+  id           String        @id @default(cuid()) @map("_id")
+  centerName   String
+  city         String
+  workingHours String
+  slotsLeft    Int
+  covaxin      Int
+  covishield   Int
+  pfizer       Int
+  appointments Appointment[]
+}
+
+model User {
+  id           String        @id @default(cuid()) @map("_id")
+  email        String        @unique
+  mobile       String?
+  city      String?
+  age          Int?
+  username     String
+  password     String
+  role         Role
+  createdAt    DateTime      @default(now())
+  appointments Appointment[]
+}
+
+model Appointment {
+  id                  String            @id @default(cuid()) @map("_id")
+  user                User              @relation(fields: [userId], references: [id])
+  userId              String
+  vaccinationCenter   VaccinationCenter @relation(fields: [vaccinationCenterId], references: [id])
+  vaccinationCenterId String
+  appointmentTime     String
+}
+
+// Enum defining different roles for the users
+enum Role {
+  CLIENT // Role for client users
+  ADMIN // Role for admin users
+}
