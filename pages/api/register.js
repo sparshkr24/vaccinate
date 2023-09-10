@@ -3,6 +3,8 @@ import prisma from "../../prisma/prisma";
 import jwt from "jsonwebtoken";
 
 export default async function handler(req, res) {
+  console.log('register api called')
+
   if (req.method != "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
@@ -37,7 +39,7 @@ export default async function handler(req, res) {
     });
 
     // Generate JWT token
-    const token = jwt.sign({ userId: newUser.id }, "shivendra123");
+    const token = jwt.sign({ userId: newUser.id }, "sparsh");
 
     // Set the token as an HTTP-only cookie
     const data = { newUser, token };

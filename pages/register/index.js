@@ -220,7 +220,7 @@ function SignInSide() {
               >
                 {`Copyright © `}
                 <Link color="inherit" href="https://mui.com/">
-                  Shivendra
+                  Sparsh
                 </Link>{" "}
                 {new Date().getFullYear()}
                 {"."}

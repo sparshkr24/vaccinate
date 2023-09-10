@@ -34,7 +34,7 @@ export default async function handler(req, res) {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ userId: currentUser.id }, 'shivendra123', { expiresIn: '2h' });
+    const token = jwt.sign({ userId: currentUser.id }, 'sparsh', { expiresIn: '2h' });
 
     // Set the token as an HTTP-only cookie
     const data = { currentUser, token };
